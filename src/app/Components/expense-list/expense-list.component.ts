@@ -59,13 +59,21 @@ export class ExpenseListComponent implements OnInit {
       console.log('Dialog closed with:', result);
       if (result === 'refresh') {
         console.log("load");
-        
+
         this.loadExpenses();
       }
     });
   }
 
   public deleteExpense(id: string): void {
-    this.expenseApi.deleteExpense(id);
+    this.expenseApi.deleteExpense(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.loadExpenses();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 }

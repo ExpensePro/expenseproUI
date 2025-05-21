@@ -16,7 +16,7 @@ export class ExpenseApiService {
   }
 
   public deleteExpense(id: string): Observable<any> {
-    return this.http.delete(this.baseUrl+'/'+'id');
+    return this.http.delete(this.baseUrl+'/'+id);
   }
 
   public addExpense(expense: any): Observable<any>{
