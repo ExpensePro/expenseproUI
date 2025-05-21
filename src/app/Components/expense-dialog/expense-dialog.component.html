@@ -1,0 +1,34 @@
+<mat-dialog-content>
+<h2 mat-dialog-title>Add/Edit Expense</h2>
+
+<!--Expense form-->
+
+<form [formGroup]="expenseForm">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+
+  
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" formControlName="amount" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Category</mat-label>
+    <input matInput formControlName="category" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Date</mat-label>
+    <input matInput type="date" formControlName="date" />
+  </mat-form-field>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+<div class="dialog-actions">
+  <button mat-button (click)="onClose()">Close</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</div>
+</mat-dialog-actions>

@@ -1,0 +1,23 @@
+<div class="add-btn-container">
+  <button mat-raised-button color="primary" (click)="openAddExpenseDialog()">
+    <mat-icon>add</mat-icon> Add New
+  </button>
+</div>
+<div class="expense-list">
+    <mat-card *ngFor="let expense of expenseList" class="expense-card">
+        <mat-card-title>{{ expense.title }}</mat-card-title>
+        <mat-card-content>
+            <p><strong>Amount:</strong> ₹{{ expense.amount }}</p>
+            <p><strong>Category:</strong> {{ expense.category }}</p>
+            <p><strong>Date:</strong> {{ expense.date | date }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-icon-button color="primary" (click)="editExpense(expense)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click) = "opendeleteDialog(expense)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,22 @@
+.expense-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.expense-card {
+  width: 300px;
+  align-items: center;
+}
+
+.empty-msg {
+  padding: 2rem;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+.add-btn-container {
+  padding: 1rem;
+}

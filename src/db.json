@@ -1,0 +1,18 @@
+{
+  "expenses": [
+    {
+      "id": "1",
+      "title": "Groceries",
+      "amount": 1200,
+      "category": "Food",
+      "date": "2024-05-01"
+    },
+    {
+      "title": "Chair 1",
+      "amount": 1000,
+      "category": "furniture",
+      "date": "2025-05-21",
+      "id": "7f2f"
+    }
+  ]
+}
