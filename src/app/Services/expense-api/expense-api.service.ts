@@ -22,4 +22,8 @@ export class ExpenseApiService {
   public addExpense(expense: any): Observable<any>{
     return this.http.post(this.baseUrl, expense);
   }
+
+  public updateExpense(id: string, expense: any): Observable<any> {
+    return this.http.put(this.baseUrl + '/' + id, expense);
+  }
 }
