@@ -65,6 +65,19 @@ export class ExpenseListComponent implements OnInit {
     });
   }
 
+  public editExpense(expense: any): void {
+    const dialogRef = this.dialog.open(ExpenseDialogComponent, {
+      width: '400px',
+      data: expense // Pass the selected expense
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'refresh') {
+        this.loadExpenses();
+      }
+    });
+  }
+
   public deleteExpense(id: string): void {
     this.expenseApi.deleteExpense(id).subscribe({
       next: (res) => {
