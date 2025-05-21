@@ -1,0 +1,17 @@
+<mat-dialog-content>
+<h2 style="text-align: center;">Confirm Deletion</h2>
+<p>
+  Are you sure you want to delete the following expense?
+</p>
+
+<ul>
+  <li><strong>Title:</strong> {{ data.title }}</li>
+  <li><strong>Amount:</strong> ₹{{ data.amount }}</li>
+</ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+<div class="actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="warn" (click)="onConfirm()">Yes</button>
+</div>
+</mat-dialog-actions>

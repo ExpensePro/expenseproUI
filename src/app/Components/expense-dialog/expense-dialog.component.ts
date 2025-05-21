@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ExpenseApiService } from 'src/app/Services/expense-api/expense-api.service';
 import { Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-expense-dialog',
@@ -18,7 +19,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule],
+    MatIconModule,
+    MatDialogModule],
   templateUrl: './expense-dialog.component.html',
   styleUrls: ['./expense-dialog.component.scss']
 })

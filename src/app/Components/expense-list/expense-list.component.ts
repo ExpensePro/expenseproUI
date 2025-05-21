@@ -7,8 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
-
-
+import { DeleteComponent } from '../delete/delete.component';
 
 @Component({
   selector: 'app-expense-list',
@@ -19,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     ExpenseDialogComponent,
     MatDialogModule,
+    DeleteComponent,
   ],
   templateUrl: './expense-list.component.html',
   styleUrls: ['./expense-list.component.scss']
@@ -68,6 +68,7 @@ export class ExpenseListComponent implements OnInit {
   public editExpense(expense: any): void {
     const dialogRef = this.dialog.open(ExpenseDialogComponent, {
       width: '400px',
+      maxHeight: 'none',
       data: expense // Pass the selected expense
     });
 
@@ -76,6 +77,20 @@ export class ExpenseListComponent implements OnInit {
         this.loadExpenses();
       }
     });
+  }
+
+  public opendeleteDialog(expense: any): void {
+    const dialogRef = this.dialog.open(DeleteComponent, {
+      width: '350px',
+      maxHeight: 'none',
+      data: expense,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'confirm') {
+        this.deleteExpense(expense.id);
+      }
+    })
   }
 
   public deleteExpense(id: string): void {
