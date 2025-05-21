@@ -1,0 +1,39 @@
+{
+  "expenses": [
+    {
+      "id": "1",
+      "title": "Groceries",
+      "amount": 1200,
+      "category": "Food",
+      "date": "2024-05-01"
+    },
+    {
+      "id": "91b7",
+      "title": "chair",
+      "amount": 500,
+      "category": "furniture",
+      "date": "2025-05-21"
+    },
+    {
+      "id": "efc7",
+      "title": "table",
+      "amount": 400,
+      "category": "furniture",
+      "date": "2025-05-21"
+    },
+    {
+      "id": "7d39",
+      "title": "example",
+      "amount": 456,
+      "category": "example",
+      "date": "2025-05-21"
+    },
+    {
+      "id": "2216",
+      "title": "example2 ",
+      "amount": 100,
+      "category": "example",
+      "date": "2025-05-21"
+    }
+  ]
+}
