@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'expenses',
     loadComponent: () => import('./Components/expense-list/expense-list.component')
       .then(m => m.ExpenseListComponent)
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 
