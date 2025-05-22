@@ -8,11 +8,18 @@
       "date": "2024-05-01"
     },
     {
-      "title": "Chair 1",
+      "id": "27dc",
+      "title": "Chair",
       "amount": 1000,
-      "category": "furniture",
-      "date": "2025-05-21",
-      "id": "7f2f"
+      "category": "Furniture",
+      "date": "2025-05-21"
+    },
+    {
+      "id": "ac9e",
+      "title": "Table",
+      "amount": 5000,
+      "category": "Furniture",
+      "date": "2025-05-21"
     }
   ]
 }
