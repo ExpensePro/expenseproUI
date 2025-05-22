@@ -2,3 +2,10 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[context.dev]
+  command = "ng build --configuration=development"
+
+# Deploy configuration for `main` branch
+[context.production]
+  command = "ng build --configuration=production"
