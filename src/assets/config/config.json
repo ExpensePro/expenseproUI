@@ -1,0 +1,7 @@
+{
+  "apiUrl": "http://localhost:3000/expenses",
+  "appVersion": "1.0.0",
+  "featureFlags": {
+    "enableBeta": true
+  }
+}

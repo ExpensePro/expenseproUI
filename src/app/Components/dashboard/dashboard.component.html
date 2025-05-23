@@ -1,0 +1,7 @@
+<app-toolbar></app-toolbar>
+<mat-tab-group fitInkBarToContent [(selectedIndex)]="tabIndex" (selectedIndexChange)="onTabChange($event)">
+  <mat-tab *ngFor="let tab of tabs" [label]="tab.label"></mat-tab>
+</mat-tab-group>
+
+<!-- Child component for selected tab will render here -->
+<router-outlet></router-outlet>
