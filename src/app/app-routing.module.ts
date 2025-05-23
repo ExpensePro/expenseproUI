@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { ExpenseListComponent } from './Components/expense-list/expense-list.component';
+import { GroupsComponent } from './Components/groups/groups.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadComponent: () => import('./Components/login/login.component').then(m => m.LoginComponent) },
-  { path: 'dashboard', loadComponent: () => import('./Components/dashboard/dashboard.component').then(m => m.DashboardComponent) },
   {
-    path: 'expenses',
-    loadComponent: () => import('./Components/expense-list/expense-list.component')
-      .then(m => m.ExpenseListComponent)
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      { path: 'personal', component: ExpenseListComponent },
+      { path: 'groups', component: GroupsComponent } // Replace with actual component
+    ]
   },
   {
     path: '**',
