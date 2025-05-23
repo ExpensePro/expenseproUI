@@ -5,7 +5,7 @@
   height: 100vh;
   background-color: #f0f2f5;
   padding: 0 1rem;
-  gap: 6rem;
+  gap: 4rem;
   flex-wrap: wrap;
   overflow: hidden;
 }
@@ -52,12 +52,17 @@ form {
 
   mat-form-field {
     width: 100%;
-    max-width: 380px;
+    margin-bottom: 0.6rem; // space between inputs
+  }
+
+  mat-form-field:last-of-type {
+    margin-bottom: 0.3rem; // tighter space below password field
   }
 
   button[type='submit'] {
     width: 60%;
     max-width: 200px;
+     margin-top: 0;
   }
 }
 
