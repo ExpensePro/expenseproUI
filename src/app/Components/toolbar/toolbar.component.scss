@@ -1,3 +1,18 @@
+::ng-deep .profile-menu {
+  min-width: 120px !important;
+}
+
+::ng-deep .mat-mdc-menu-content {
+  font-size: 13px !important; // reduce font size
+  padding: 2px !important; // tighter padding
+}
+
+::ng-deep .mat-mdc-menu-item .mat-icon {
+    margin-right: 10px !important;
+    margin-top: 5px !important;
+    font-size: 1.2rem !important;
+}
+
 .toolbar {
   display: flex;
   justify-content: space-between;
