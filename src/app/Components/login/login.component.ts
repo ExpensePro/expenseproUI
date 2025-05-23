@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     const { username, password } = this.loginForm.value;
 
     if (username === 'harsh@gmail.com' && password === 'harsh') {
-      this.router.navigate(['/expenses']);
+      this.router.navigate(['/dashboard']);
     } else {
       alert('Invalid credentials');
     }

@@ -1,0 +1,11 @@
+<mat-tab-group [(selectedIndex)]="selectedIndex" (selectedIndexChange)="onTabChange($event)">
+  <mat-tab *ngFor="let tab of tabs" [label]="tab.label">
+    <ng-container *ngIf="tab.key === 'personal'">
+      <app-expense-list></app-expense-list>
+    </ng-container>
+
+    <ng-container *ngIf="tab.key === 'groups'">
+      <p style="padding: 1rem;">Groups feature coming soon...</p>
+    </ng-container>
+  </mat-tab>
+</mat-tab-group>
