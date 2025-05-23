@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ExpenseListComponent } from '../expense-list/expense-list.component';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ExpenseListComponent, MatTabsModule, RouterModule],
+  imports: [CommonModule, ExpenseListComponent, MatTabsModule, RouterModule, ToolbarComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
