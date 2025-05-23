@@ -1,3 +1,49 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  padding: 0 1rem;
+  gap: 6rem;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+
+.left-panel {
+  max-width: 400px;
+  text-align: left;
+
+  .app-name {
+    font-size: 3rem;
+    color: #1877f2;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .app-desc {
+    font-size: 1.25rem;
+    color: #1c1e21;
+    margin-top: 1rem;
+  }
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
 form {
   max-width: 400px;
   margin: 2rem auto;
@@ -7,5 +53,27 @@ form {
 }
 
 .full-width {
-  width: 100%;
+  width: 23rem;
+  margin-bottom: 1rem;
+}
+
+.register-section {
+  text-align: center;
+
+  p {
+    margin: 0 0 0.5rem;
+    color: #606770;
+  }
+
+  button {
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+}
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 0.7rem 0;
 }
