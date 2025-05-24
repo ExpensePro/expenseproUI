@@ -1,11 +1,93 @@
-form {
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  padding: 0 1rem;
+  gap: 4rem;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+
+.left-panel {
   max-width: 400px;
-  margin: 2rem auto;
+  text-align: left;
+
+  .app-name {
+    font-size: 3rem;
+    color: #1877f2;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .app-desc {
+    font-size: 1.25rem;
+    color: #1c1e21;
+    margin-top: 1rem;
+  }
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 0.6rem; // space between inputs
+  }
+
+  mat-form-field:last-of-type {
+    margin-bottom: 0.3rem; // tighter space below password field
+  }
+
+  button[type='submit'] {
+    width: 60%;
+    max-width: 200px;
+     margin-top: 0;
+  }
 }
 
 .full-width {
   width: 100%;
+  margin-bottom: 1rem;
+}
+
+.register-section {
+  text-align: center;
+
+  p {
+    margin: 0 0 0.5rem;
+    color: #606770;
+  }
+
+  button {
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+}
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 0.7rem 0;
 }
