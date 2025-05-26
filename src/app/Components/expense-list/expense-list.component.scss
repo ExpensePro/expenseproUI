@@ -2,11 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 3rem;
 }
 
 .expense-card {
-  width: 300px;
+  width: 280px;
   align-items: center;
 }
 
@@ -18,5 +18,8 @@
 }
 
 .add-btn-container {
+  display: flex;
+  justify-content: flex-end;
   padding: 1rem;
+  padding-right: 4rem;
 }

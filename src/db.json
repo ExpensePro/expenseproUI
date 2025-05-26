@@ -13,6 +13,20 @@
       "amount": 1000,
       "category": "Furniture",
       "date": "2025-05-21"
+    },
+    {
+      "id": "9b8c",
+      "title": "phone",
+      "amount": 200000,
+      "category": "electrical",
+      "date": "2025-05-25"
+    },
+    {
+      "id": "cb24",
+      "title": "example 2",
+      "amount": 20000,
+      "category": "example",
+      "date": "2025-05-25"
     }
   ]
 }
