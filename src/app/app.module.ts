@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigServiceService } from './Services/config-service/config-service.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 export function loadConfig(config: ConfigServiceService) {
   return () => config.loadConfig();
@@ -20,6 +21,7 @@ export function loadConfig(config: ConfigServiceService) {
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [
         {
