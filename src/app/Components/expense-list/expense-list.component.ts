@@ -8,6 +8,7 @@ import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.compone
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteComponent } from '../delete/delete.component';
+import { SnackbarService } from 'src/app/Services/snackbar-service/snackbar.service';
 
 @Component({
   selector: 'app-expense-list',
@@ -29,8 +30,10 @@ export class ExpenseListComponent implements OnInit {
 
   constructor(
     private expenseApi: ExpenseApiService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: SnackbarService,
   ) { }
+
   ngOnInit(): void {
     this.loadExpenses();
   }
@@ -43,6 +46,7 @@ export class ExpenseListComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
+        this.snackBar.displaySnackBar("Unable to load your expenses right now", 'error');
       },
       complete: () => {
         console.log("fetch complete")
@@ -97,11 +101,15 @@ export class ExpenseListComponent implements OnInit {
     this.expenseApi.deleteExpense(id).subscribe({
       next: (res) => {
         console.log(res);
-        this.loadExpenses();
       },
       error: (err) => {
         console.error(err);
-      }
+        this.snackBar.displaySnackBar("Unable to deleete expense", 'error');
+      },
+      complete: () => {
+        this.loadExpenses();
+        this.snackBar.displaySnackBar("Expense deleted successfully", 'success');
+      },
     })
   }
 }

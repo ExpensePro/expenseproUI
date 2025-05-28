@@ -10,6 +10,7 @@ import { ExpenseApiService } from 'src/app/Services/expense-api/expense-api.serv
 import { Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SnackbarService } from 'src/app/Services/snackbar-service/snackbar.service';
 
 @Component({
   selector: 'app-expense-dialog',
@@ -32,6 +33,7 @@ export class ExpenseDialogComponent implements OnInit {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<ExpenseDialogComponent>,
     private expenseApi: ExpenseApiService,
+    private snackBar: SnackbarService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
   }
@@ -58,17 +60,25 @@ export class ExpenseDialogComponent implements OnInit {
 
     if (this.data?.id) {
       this.expenseApi.updateExpense(this.data.id, expense).subscribe({
-        next: () => this.dialogRef.close('refresh'),
-        error: err => console.error('Error updating expense:', err)
+        next: () => {
+          this.dialogRef.close('refresh');
+          this.snackBar.displaySnackBar("Expense updated successfully", 'success');
+        },
+        error: err => {
+          console.error('Error updating expense:', err);
+          this.snackBar.displaySnackBar("Unable to update expense", 'error');
+        }
       });
     }
     else {
       this.expenseApi.addExpense(expense).subscribe({
         next: () => {
-          this.dialogRef.close('refresh')
+          this.dialogRef.close('refresh');
+          this.snackBar.displaySnackBar("Expense added successfully", 'success');
         },
         error: (err) => {
           console.error(err);
+          this.snackBar.displaySnackBar("Unable to add expense", 'error');
         }
       })
     }
