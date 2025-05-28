@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ConfigServiceService } from './Services/config-service/config-service.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoaderInterceptor } from './Interceptors/loader.interceptor';
+import { HeaderInterceptor } from './Interceptors/header.interceptor';
 
 export function loadConfig(config: ConfigServiceService) {
   return () => config.loadConfig();
@@ -34,6 +35,11 @@ export function loadConfig(config: ConfigServiceService) {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
       multi: true
     }
   ],
