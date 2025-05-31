@@ -11,10 +11,12 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     children: [
+      {path: '', component: ExpenseListComponent},
       { path: 'personal', component: ExpenseListComponent },
-      { path: 'groups', component: GroupsComponent } // Replace with actual component
+      { path: 'groups', component: GroupsComponent }
     ]
   },
+  { path: 'register', loadComponent: () => import('./Components/register/register.component').then(m => m.RegisterComponent) },
   {
     path: '**',
     redirectTo: 'login'
