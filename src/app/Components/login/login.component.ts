@@ -42,4 +42,8 @@ export class LoginComponent implements OnInit {
       alert('Invalid credentials');
     }
   }
+
+  public registerUser(): void {
+    this.router.navigate(['/register']);
+  }
 }
