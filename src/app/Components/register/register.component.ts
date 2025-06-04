@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,7 @@ import { MatCardModule } from '@angular/material/card';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.iniatlizeForm();
@@ -58,5 +59,9 @@ export class RegisterComponent implements OnInit {
     else {
       console.log('Form Submitted', this.registerForm.value);
     }
+  }
+
+  public goToLogin(): void {
+    this.router.navigate(['/login']);
   }
 }

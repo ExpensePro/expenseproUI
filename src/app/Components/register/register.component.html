@@ -31,9 +31,12 @@
                 </mat-error>
             </mat-form-field>
 
-            <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">
-                Register
-            </button>
+            <div class="register-actions">
+                <button mat-button color="primary" (click)="goToLogin()">Back to Login</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">
+                    Register
+                </button>
+            </div>
         </form>
     </mat-card>
 </div>
