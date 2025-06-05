@@ -1,0 +1,87 @@
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+    grid-template-areas:
+        "banner banner"
+        "chart highlight"
+        "trend trend";
+
+    @media (max-width: 768px) {
+        grid-template-areas:
+            "banner"
+            "chart"
+            "highlight"
+            "trend";
+    }
+}
+
+.banner-card {
+    grid-area: banner;
+    background: linear-gradient(135deg, #f0f4ff, #dceeff); // softer blue gradient
+    color: #1a237e; // deep indigo for text
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); // subtler shadow
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500; // reduced from 600
+        letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+        font-size: 2.6rem;
+        font-weight: 600; // bolder than header but less heavy
+        color: #1a237e;
+    }
+}
+
+.chart-card {
+    grid-area: chart;
+    padding: 1rem;
+}
+
+.highlight-card {
+    grid-area: highlight;
+    background: #fbe9e7;
+    padding: 1rem;
+}
+
+.trend-card {
+    grid-area: trend;
+    padding: 1rem;
+}
+
+.chart-placeholder {
+    height: 200px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-style: italic;
+}
+
+h2 mat-icon {
+    vertical-align: middle;
+    margin-right: 0.3rem;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 480px) {
+    .banner-card {
+        padding: 1.2rem;
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+        }
+    }
+}

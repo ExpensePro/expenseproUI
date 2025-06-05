@@ -27,8 +27,19 @@
     margin-bottom: 0.5rem;
 }
 
-button[mat-raised-button][disabled] {
-  background-color: #bbdefb !important;
-  color: white !important;
-  cursor: not-allowed;
+.register-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        font-weight: 500;
+        text-transform: none;
+    }
+
+    button[mat-raised-button][disabled] {
+        background-color: #bbdefb !important;
+        color: #fff;
+        opacity: 0.8;
+    }
 }

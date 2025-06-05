@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ExpenseListComponent } from './Components/expense-list/expense-list.component';
 import { GroupsComponent } from './Components/groups/groups.component';
+import { ExpenseStatisticsComponent } from './Components/expense-statistics/expense-statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
     children: [
       {path: '', component: ExpenseListComponent},
       { path: 'personal', component: ExpenseListComponent },
-      { path: 'groups', component: GroupsComponent }
+      { path: 'groups', component: GroupsComponent },
+      { path: 'expense-stats', component: ExpenseStatisticsComponent},
     ]
   },
   { path: 'register', loadComponent: () => import('./Components/register/register.component').then(m => m.RegisterComponent) },
