@@ -5,6 +5,7 @@ import { ExpenseListComponent } from '../expense-list/expense-list.component';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { LoaderComponent } from '../loader/loader.component';
+import { ExpenseStatisticsComponent } from '../expense-statistics/expense-statistics.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +18,7 @@ export class DashboardComponent implements OnInit {
 
   public tabIndex: number = 0;
   public tabs = [
+    { label: 'Expense Stats', path: 'expense-stats', component: ExpenseStatisticsComponent},
     { label: 'Personal Expense', path: 'personal', component: ExpenseListComponent },
     { label: 'Groups', path: 'groups', component: null }
   ];
