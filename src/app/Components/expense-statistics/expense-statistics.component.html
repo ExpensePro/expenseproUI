@@ -20,6 +20,9 @@
     <!-- Bottom Full Width Chart -->
     <mat-card class="card trend-card">
         <h3>Monthly Trend</h3>
-        <div class="chart-placeholder">[ Line Chart Placeholder ]</div>
+        <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
+            [dataLabels]="chartOptions.dataLabels!" [stroke]="chartOptions.stroke!" [title]="chartOptions.title!"
+            [tooltip]="chartOptions.tooltip!">
+        </apx-chart>
     </mat-card>
 </div>
