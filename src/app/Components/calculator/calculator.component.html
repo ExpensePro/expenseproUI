@@ -1,0 +1,22 @@
+<!-- Floating FAB -->
+<button mat-fab class="calculator-fab" (click)="openCalculator()" *ngIf="!isOpen">
+    <mat-icon>calculate</mat-icon>
+</button>
+
+<!-- Draggable & Resizable Calculator -->
+<div *ngIf="isOpen" #calcBox class="calculator-container" cdkDrag
+    [ngStyle]="{ width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' }">
+    <div class="calculator-header" cdkDragHandle>
+        <span>Calculator</span>
+        <button mat-icon-button (click)="isOpen = false">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <div class="calculator-body">
+        <p>[ Calculator UI goes here... ]</p>
+    </div>
+
+    <!-- Bottom-right Resize Handle -->
+    <div class="resize-handle" (mousedown)="startResizing($event)"></div>
+</div>

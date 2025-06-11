@@ -1,0 +1,44 @@
+.calculator-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.calculator-container {
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.calculator-header {
+    background: #3f51b5;
+    color: white;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.calculator-body {
+    padding: 1rem;
+    height: calc(100% - 50px);
+    overflow: auto;
+}
+
+.resize-handle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0;
+    bottom: 0;
+    cursor: nwse-resize;
+    background: transparent;
+}

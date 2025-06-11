@@ -29,12 +29,14 @@ export type ChartOptions = {
 export class ExpenseStatisticsComponent implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions>;
+  public totalExpense: number = 0;
 
   constructor(private expenseApiService: ExpenseApiService) { }
 
   ngOnInit(): void {
     this.expenseApiService.getExpenses().subscribe({
       next: (expenses) => {
+        this.totalExpense = expenses.reduce((sum: number, expense: any) => sum + expense.amount, 0); console.log(this.totalExpense);
         const monthlyTotals = new Array(12).fill(0);
         expenses.forEach((expense: any) => {
           const monthIndex = new Date(expense.date).getMonth(); // 0 = Jan, 11 = Dec
