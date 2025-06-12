@@ -3,20 +3,23 @@
     <mat-icon>calculate</mat-icon>
 </button>
 
-<!-- Draggable & Resizable Calculator -->
-<div *ngIf="isOpen" #calcBox class="calculator-container" cdkDrag
+<!-- Floating Calculator -->
+<div *ngIf="isOpen" class="calculator-container" #calcBox cdkDrag
     [ngStyle]="{ width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' }">
+
     <div class="calculator-header" cdkDragHandle>
         <span>Calculator</span>
-        <button mat-icon-button (click)="isOpen = false">
-            <mat-icon>close</mat-icon>
-        </button>
+        <button mat-icon-button (click)="isOpen = false"><mat-icon>close</mat-icon></button>
     </div>
 
     <div class="calculator-body">
-        <p>[ Calculator UI goes here... ]</p>
-    </div>
+        <div class="calculator-display">{{ display }}</div>
 
-    <!-- Bottom-right Resize Handle -->
+        <div class="calculator-buttons">
+            <ng-container *ngFor="let key of keys">
+                <button [class.operator]="isOperator(key)" (click)="pressKey(key)">{{ key }}</button>
+            </ng-container>
+        </div>
+    </div>
     <div class="resize-handle" (mousedown)="startResizing($event)"></div>
 </div>
