@@ -14,21 +14,36 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 export class CalculatorComponent {
 
   isOpen = false;
+  width = 320;
+  height = 460;
+  top = 0;
+  left = 0;
+
   isResizing = false;
-  width = 300;
-  height = 400;
   lastMouseX = 0;
   lastMouseY = 0;
-  top = 100;
-  left = 100;
+
+  display = '0';
+  keys = ['7', '8', '9', '/',
+    '4', '5', '6', '*',
+    '1', '2', '3', '-',
+    '0', '.', '=', '+',
+    'C'];
 
   @ViewChild('calcBox') calcBox!: ElementRef;
 
-  // Position at center after view initializes
   ngAfterViewInit(): void {
-    if (this.isOpen) {
-      this.centerCalculator();
-    }
+    if (this.isOpen) this.centerCalculator();
+  }
+
+  openCalculator() {
+    this.isOpen = true;
+    setTimeout(() => this.centerCalculator());
+  }
+
+  centerCalculator() {
+    this.left = (window.innerWidth - this.width) / 2;
+    this.top = (window.innerHeight - this.height) / 2;
   }
 
   startResizing(event: MouseEvent) {
@@ -39,35 +54,40 @@ export class CalculatorComponent {
   }
 
   @HostListener('document:mousemove', ['$event'])
-  resize(event: MouseEvent) {
+  onMouseMove(event: MouseEvent) {
     if (!this.isResizing) return;
     const dx = event.clientX - this.lastMouseX;
     const dy = event.clientY - this.lastMouseY;
-    this.width = Math.max(250, this.width + dx);
-    this.height = Math.max(250, this.height + dy);
+    this.width = Math.max(280, this.width + dx);
+    this.height = Math.max(460, this.height + dy);
     this.lastMouseX = event.clientX;
     this.lastMouseY = event.clientY;
   }
 
   @HostListener('document:mouseup')
-  stopResizing() {
+  onMouseUp() {
     this.isResizing = false;
   }
 
-  openCalculator() {
-    this.isOpen = true;
-
-    // Wait a tick to ensure DOM is rendered
-    setTimeout(() => {
-      this.centerCalculator();
-    });
+  isOperator(key: string): boolean {
+    return ['+', '-', '*', '/', '='].includes(key);
   }
 
-  centerCalculator() {
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-
-    this.left = (viewportWidth - this.width) / 2;
-    this.top = (viewportHeight - this.height) / 2;
+  pressKey(key: string) {
+    if (key === 'C') {
+      this.display = '0';
+    } else if (key === '=') {
+      try {
+        this.display = eval(this.display).toString();
+      } catch {
+        this.display = 'Error';
+      }
+    } else {
+      if (this.display === '0' && key !== '.') {
+        this.display = key;
+      } else {
+        this.display += key;
+      }
+    }
   }
 }

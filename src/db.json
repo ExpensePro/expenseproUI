@@ -20,6 +20,13 @@
       "amount": 50000,
       "category": "elect",
       "date": "2025-06-08"
+    },
+    {
+      "id": "470a",
+      "title": "bike ",
+      "amount": 100000,
+      "category": "vehicle",
+      "date": "2025-06-08"
     }
   ]
 }
