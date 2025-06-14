@@ -31,11 +31,20 @@ export class ExpenseStatisticsComponent implements OnInit {
   public chartOptions!: Partial<ChartOptions>;
   public totalExpense: number = 0;
 
+  public biggestExpense: { title: string; amount: number; category: string } | null = null
+
   constructor(private expenseApiService: ExpenseApiService) { }
 
   ngOnInit(): void {
     this.expenseApiService.getExpenses().subscribe({
       next: (expenses) => {
+        const highest = expenses.reduce((prev: any, curr: any) => (curr.amount > prev.amount ? curr : prev), expenses[0]);
+        this.biggestExpense = {
+          title: highest.title,
+          amount: highest.amount,
+          category: highest.category || 'Uncategorized'
+        };
+        console.log(this.biggestExpense);
         this.totalExpense = expenses.reduce((sum: number, expense: any) => sum + expense.amount, 0); console.log(this.totalExpense);
         const monthlyTotals = new Array(12).fill(0);
         expenses.forEach((expense: any) => {
