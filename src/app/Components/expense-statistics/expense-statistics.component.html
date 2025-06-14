@@ -13,16 +13,21 @@
 
     <!-- Right Highlight Box -->
     <mat-card class="card highlight-card">
-        <h3>Biggest Expense</h3>
-        <p>₹8,500 on Electronics</p>
+        <h3><mat-icon>trending_up</mat-icon>Biggest Expense</h3>
+        <ng-container *ngIf="biggestExpense">
+            <p class="highlight-amount">₹{{ biggestExpense.amount | number }}</p>
+            <p class="highlight-category">
+                <mat-icon>label</mat-icon> {{ biggestExpense.title }} ({{ biggestExpense.category }})
+            </p>
+        </ng-container>
     </mat-card>
 
     <!-- Bottom Full Width Chart -->
     <mat-card class="card trend-card">
         <h3>Monthly Trend</h3>
-        <apx-chart *ngIf="chartOptions" [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
-            [dataLabels]="chartOptions.dataLabels!" [stroke]="chartOptions.stroke!" [title]="chartOptions.title!"
-            [tooltip]="chartOptions.tooltip!">
+        <apx-chart *ngIf="chartOptions" [series]="chartOptions.series!" [chart]="chartOptions.chart!"
+            [xaxis]="chartOptions.xaxis!" [dataLabels]="chartOptions.dataLabels!" [stroke]="chartOptions.stroke!"
+            [title]="chartOptions.title!" [tooltip]="chartOptions.tooltip!">
         </apx-chart>
     </mat-card>
 </div>
